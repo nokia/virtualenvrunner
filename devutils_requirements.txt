@@ -1,0 +1,13 @@
+invoke==0.12.2
+devpi-client==4.1.0
+detox==0.15
+tox==3.4.0
+future
+six
+rstcheck
+sphinx < 1.8.0
+robotframework
+virtualenvrunner
+virtualenv==16.3.0
+crl.repo
+configparser

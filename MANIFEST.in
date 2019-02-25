@@ -1,0 +1,10 @@
+include tox.ini
+include tests/*.py
+include tests/mockvenv/bin/*.py
+include tests/mockwinvenv/Scripts/*.py
+include sphinxdocs/*
+include sphinxdocs/_static/*
+include devutils_requirements.txt
+include test_requirements.txt
+include .coveragerc
+include .pylintrc
