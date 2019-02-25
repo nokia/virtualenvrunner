@@ -1,0 +1,15 @@
+*.pyc
+*.swp
+*.swo
+dist/*
+virtualenvrunner.egg-info
+src/virtualenvrunner.egg-info/*
+.idea/
+.cache/
+.coverage
+.tox/
+build_dir/
+build/
+coverage.xml
+junit.xml
+.pytest_cache
