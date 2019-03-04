@@ -14,8 +14,8 @@ class _QueueItem(object):
     def get_return(self):
         if self._exception:
             raise self._exception  # pylint: disable=raising-bad-type
-        else:
-            return self._ret
+
+        return self._ret
 
 
 class ActivateEnv(object):

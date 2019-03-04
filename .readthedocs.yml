@@ -1,0 +1,13 @@
+# .readthedocs.yml
+
+version: 2
+
+python:
+    version: 3.7
+    install:
+        - method: setuptools
+          path: .
+    system_packages: true
+
+sphinx:
+    configuration: sphinxdocs/conf.py

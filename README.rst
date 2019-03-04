@@ -3,6 +3,13 @@
 README
 ======
 
+Documentation
+-------------
+
+Documentation for virtualenvrunner can be found from `Read The Docs`_.
+
+.. _Read The Docs: http://virtualenvrunner.readthedocs.io/
+
 run_in_virtualenv tool
 ----------------------
 
@@ -19,4 +26,6 @@ Development practices
 ---------------------
 
 The development and the testing follows the Common Robot Libraries development
-practices defined in https://github.com/nokia/crl-devutils.
+practices defined in crl-devutils_.
+
+.. _crl-devutils: http://crl-devutils.readthedocs.io/.
