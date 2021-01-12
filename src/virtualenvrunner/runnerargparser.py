@@ -36,11 +36,10 @@ class RunnerArgParser(object):
 
     @property
     def _python(self):
-        return ('python'
-                if self._python_version is None else
-                'python{major}.{minor}'.format(
-                    major=self._python_version.major,
-                    minor=self._python_version.minor))
+        if self._python_version is None:
+            return 'python'
+        return 'python{version}'.format(
+            version=self._python_version)
 
     def _add_arguments_with_values(self):
         self.parser.add_argument(

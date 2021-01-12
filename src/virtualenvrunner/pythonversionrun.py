@@ -20,11 +20,10 @@ class PythonVersionRun(object):
         return lambda: self._run_with_python_version(python_version)
 
     def _run_with_python_version(self, python_version):
-        self._run(pythonexe='python{major}.{minor}{exe_suffix}'.format(
-            major=python_version.major,
-            minor=python_version.minor,
+        self._run(pythonexe='python{version}{exe_suffix}'.format(
+            version=python_version,
             exe_suffix=get_exe_suffix()),
-                  python_version=python_version)
+                python_version=python_version)
 
     def __getattr__(self, name):
         try:
