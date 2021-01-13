@@ -165,7 +165,7 @@ class RealVirtualenvPopen(PopenSideeffectBase):
                 os.path.join(os.path.dirname(__file__),
                              self.mock_virtualenv_dirname),
                 args[0].split()[-1])
-        return super(RealVirtualenvPopen, self).side_effect(*args, **kwargs)
+        return super(RealVirtualenvPopen, self).side_effect(*args, **kwargs)  # pylint: disable=super-with-arguments
 
 
 class MockVirtualenvPopen(PopenSideeffectBase):

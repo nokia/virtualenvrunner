@@ -30,6 +30,6 @@ class PythonVersionRun(object):
         try:
             return self._run_functions[name]
         except KeyError:
-            raise AttributeError('{cls} object has no attribute {name}'.format(
+            raise AttributeError('{cls} object has no attribute {name}'.format(  # pylint: disable=raise-missing-from
                 cls=self.__class__.__name__,
                 name=name))
