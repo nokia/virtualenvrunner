@@ -297,12 +297,12 @@ class TmpVenvRunner(Runner):
     """
     def __enter__(self):
         self._tmp_virtualenv_dir = None
-        return super(TmpVenvRunner, self).__enter__()
+        return super(TmpVenvRunner, self).__enter__()  # pylint: disable=super-with-arguments
 
     def __exit__(self, *args):
         if self._tmp_virtualenv_dir:
             shutil.rmtree(self._tmp_virtualenv_dir)
-        super(TmpVenvRunner, self).__exit__(*args)
+        super(TmpVenvRunner, self).__exit__(*args)  # pylint: disable=super-with-arguments
 
     @property
     def virtualenv_dir(self):
@@ -322,7 +322,7 @@ class VerboseRunner(Runner):
     """
 
     def _write_line(self, line):
-        super(VerboseRunner, self)._write_line(line)
+        super(VerboseRunner, self)._write_line(line)  # pylint: disable=super-with-arguments
         print(line, end='')
 
 

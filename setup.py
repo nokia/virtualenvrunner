@@ -1,5 +1,6 @@
 
 import os
+import sys
 import imp
 from collections import namedtuple
 from setuptools import setup, find_packages
@@ -12,8 +13,20 @@ VERSIONFILE = os.path.join(
     'src', 'virtualenvrunner', '_version.py')
 
 
+def import_module(name, path):
+    if sys.version_info.major == 2:
+        import imp
+        return imp.load_source(name, path)
+
+    import importlib
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def get_version():
-    return imp.load_source('_version', VERSIONFILE).get_version()
+    return import_module('_version', VERSIONFILE).get_version()
 
 
 python_versions = os.path.join(
@@ -50,9 +63,9 @@ def get_console_scripts():
     return (
         ['{clif.cli} = virtualenvrunner.cli:{clif.function}'.format(
             clif=clif) for clif in get_clifunctions()] +
-        [('{clif.cli}{major}.{minor} = '
+        [('{clif.cli}{version} = '
           'virtualenvrunner.cli:{clif.function}{major}{minor}'.format(
-              major=v.major, minor=v.minor, clif=clif))
+             version=v, major=v.major, minor=v.minor, clif=clif))
          for v in get_python_versions()
          for clif in get_versionedclifunctions()])
 
@@ -77,6 +90,7 @@ setup(
                  'Programming Language :: Python :: 2.7',
                  'Programming Language :: Python :: 3',
                  'Programming Language :: Python :: 3.6',
+                 'Programming Language :: Python :: 3.7',
                  'Topic :: Software Development'],
     keywords='virtualenv',
     url='https://github.com/nokia/virtualenvrunner',

@@ -20,16 +20,15 @@ class PythonVersionRun(object):
         return lambda: self._run_with_python_version(python_version)
 
     def _run_with_python_version(self, python_version):
-        self._run(pythonexe='python{major}.{minor}{exe_suffix}'.format(
-            major=python_version.major,
-            minor=python_version.minor,
+        self._run(pythonexe='python{version}{exe_suffix}'.format(
+            version=python_version,
             exe_suffix=get_exe_suffix()),
-                  python_version=python_version)
+                python_version=python_version)
 
     def __getattr__(self, name):
         try:
             return self._run_functions[name]
         except KeyError:
-            raise AttributeError('{cls} object has no attribute {name}'.format(
+            raise AttributeError('{cls} object has no attribute {name}'.format(  # pylint: disable=raise-missing-from
                 cls=self.__class__.__name__,
                 name=name))

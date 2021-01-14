@@ -1,6 +1,16 @@
 language: python
 python:
-  - "3.6"
+matrix:
+  include:
+    - name: py27
+      python: 2.7
+      env: TOXENV=py27
+    - name: py36
+      python: 3.6
+      env: TOXENV=py36
+    - name: py37-pylint-docs
+      python: 3.7
+      env: TOXENV=py37,pylint,docs
 install:
   - pip install tox
 script: tox

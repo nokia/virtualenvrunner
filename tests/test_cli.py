@@ -62,8 +62,9 @@ def test_create_virtualenv_positional_arguments(script_runner,
 
 def get_clis_with_base(base):
     return [base] + [
-        '{base}{v.major}.{v.minor}'.format(
-            base=base, v=v) for v in get_python_versions()]
+        '{base}{version}'.format(
+            base=base, version=v)
+        for v in get_python_versions()]
 
 
 def get_base_clis():
@@ -90,11 +91,11 @@ def get_run_tuples():
 
 
 def get_run_tuples_for_version(v):
-    return [('{cli}{major}.{minor}'.format(
-        major=v.major, minor=v.minor, cli=cli),
+    return [('{cli}{version}'.format(
+        version=v, cli=cli),
              t[0],
-             'python{major}.{minor}{suffix}'.format(
-                 major=v.major, minor=v.minor, suffix=t[1])) for t in [
+             'python{version}{suffix}'.format(
+                 version=v, suffix=t[1])) for t in [
                      ('win32', '.exe'),
                      ('linux', '')] for cli in get_base_clis()]
 
@@ -262,13 +263,11 @@ def save_freeze(tmpdir, request):
 
 def _get_versioned_run_scripts_with_expected_help():
     return [(
-        '{cli}{major}.{minor}'.format(
-            major=v.major,
-            minor=v.minor,
+        '{cli}{version}'.format(
+            version=v,
             cli=cli),
-        'python{major}.{minor}'.format(
-            major=v.major,
-            minor=v.minor))
+        'python{version}'.format(
+            version=v))
             for v in get_python_versions()
             for cli in get_base_clis()]
 

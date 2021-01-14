@@ -18,8 +18,9 @@ run_in_virtualenv
     virtualenv.
 
     The default interpreter in the command line is *python*.  The interpreters
-    *python2.7* and *python3.x* can be forced by using *run_in_virtualenv2.7*
-    and *run_in_virtualenv3.x* respectively.
+    *python2.7*, *python2*, *python3.x* and *python3* can be forced by using
+    *run_in_virtualenv2.7*, *run_in_virtualenv2*, *run_in_virtualenv3.x* and
+    *run_in_virtualenv3* respectively.
 
     .. note::
 
