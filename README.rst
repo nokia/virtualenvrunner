@@ -32,3 +32,9 @@ The development and the testing follows the Common Robot Libraries development
 practices defined in crl-devutils_.
 
 .. _crl-devutils: http://crl-devutils.readthedocs.io/.
+
+
+License
+-------
+
+This project is licensed under the BSD-3-Clause license - see the `LICENSE <https://github.com/nokia/virtualenvrunner/blob/master/LICENSE>`_.
